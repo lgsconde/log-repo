@@ -1,7 +1,6 @@
-name: CI
-
 on:
   workflow_dispatch:
+
 jobs:
   build:
     runs-on: ubuntu-latest
@@ -12,5 +11,14 @@ jobs:
           echo "::warning:: Mensagem de Log warning"
           echo "::notice:: Mensagem de Log notice"
           echo "::error:: Mensagem de Log de Error executado por ${{ github.actor }}"
-          
+
+      - name: Adicionando Logs agrupados
+        run: |
+          echo "::group:: Grupo de Logs"
+          echo "Informção XPTO 1"
+          echo "Informção XPTO 2"
+          echo "Informção XPTO 3"
+          echo "Informção XPTO 4"
+          echo "Esse workflow foi disparado por ${{ github.actor }}"
+          echo "::endgroup::"
           
